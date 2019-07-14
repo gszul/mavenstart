@@ -1,11 +1,8 @@
 package io.github.mat3e;
 
 import org.junit.Test;
-
 import java.util.Optional;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class HelloServiceTest {
     private final static String WELCOME = "Hello";
@@ -61,6 +58,24 @@ public class HelloServiceTest {
 
         //then
         assertEquals(FALLBACK_ID_WELCOME + " " + HelloService.FALLBACK_NAME + "!", result);
+    }
+
+    @Test
+    public void test_prepareGreeting_nonExistingLang_returnsGreetingWithFallbackIdLang() {
+        //given
+        var mockRepository = new LangRepository() {
+            @Override
+            Optional<Lang> findById(Long id) {
+                return Optional.empty();
+            }
+        };
+        var SUT = new HelloService(mockRepository);
+
+        //when
+        var result = SUT.prepareGreeting(null, "1");
+
+        //then
+        assertEquals(HelloService.FALLBACK_LANG.getWelcameMsg() + " " + HelloService.FALLBACK_NAME + "!", result);
     }
 
     private LangRepository fallbackLangIdRepository() {
