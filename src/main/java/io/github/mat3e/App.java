@@ -16,17 +16,7 @@ public class App {
         var webapp = new WebAppContext();
         webapp.setResourceBase("src/main/webapp");
         webapp.setContextPath("/");
-        webapp.setConfigurations(new Configuration[]
-                {
-                        new AnnotationConfiguration(),
-                        new WebInfConfiguration(),
-                        new WebXmlConfiguration(),
-                        new MetaInfConfiguration(),
-                        new FragmentConfiguration(),
-                        new EnvConfiguration(),
-                        new PlusConfiguration(),
-                        new JettyWebXmlConfiguration()
-                });
+        webapp.setConfigurations(new Configuration[]{new AnnotationConfiguration(), new WebInfConfiguration(), new WebXmlConfiguration(), new MetaInfConfiguration(), new FragmentConfiguration(), new EnvConfiguration(), new PlusConfiguration(), new JettyWebXmlConfiguration()});
         webapp.setAttribute("org.eclipse.jetty.server.webapp.ContainerIncludeJarPattern", ".*/classes/.*");
 
         var server = new Server(8080);
