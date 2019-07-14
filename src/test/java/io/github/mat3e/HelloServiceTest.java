@@ -61,7 +61,7 @@ public class HelloServiceTest {
     }
 
     @Test
-    public void test_prepareGreeting_nonExistingLang_returnsGreetingWithFallbackIdLang() {
+    public void test_prepareGreeting_nonExistingLang_returnsGreetingWithFallbackLang() {
         //given
         var mockRepository = new LangRepository() {
             @Override
@@ -72,7 +72,7 @@ public class HelloServiceTest {
         var SUT = new HelloService(mockRepository);
 
         //when
-        var result = SUT.prepareGreeting(null, "1");
+        var result = SUT.prepareGreeting(null, "-1");
 
         //then
         assertEquals(HelloService.FALLBACK_LANG.getWelcameMsg() + " " + HelloService.FALLBACK_NAME + "!", result);
