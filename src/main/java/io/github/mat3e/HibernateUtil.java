@@ -9,7 +9,7 @@ public class HibernateUtil {
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
     static void close() {
-        if ( sessionFactory != null ) {
+        if (sessionFactory != null ) {
             sessionFactory.close();
         }
     }
@@ -23,10 +23,10 @@ public class HibernateUtil {
                 .configure()
                 .build();
         try {
-            return new MetadataSources( registry ).buildMetadata().buildSessionFactory();
+            return new MetadataSources(registry).buildMetadata().buildSessionFactory();
         }
         catch (Exception e) {
-            StandardServiceRegistryBuilder.destroy( registry );
+            StandardServiceRegistryBuilder.destroy(registry);
             throw e;
         }
     }

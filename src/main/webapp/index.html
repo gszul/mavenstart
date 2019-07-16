@@ -26,12 +26,12 @@
         .then((langArr) => {
             const checkboxes = langArr.map(l => `
                 <label class="pure-radio">
-                    <input type="radio" name="lang" value="{l.id}">
+                    <input type="radio" name="lang" value="${l.id}">
                     ${CODE_TO_EMOJI[l.code]};
                 </label>
-            `);
-            document.getElementById('langs').innerHTML = checkBoxes;
-        }).join('\n');
+            `).join('\n');
+            document.getElementById('langs').innerHTML = checkboxes;
+        });
 
     const div = document.getElementById('welcome');
     const form = document.getElementById("welcomeForm");
