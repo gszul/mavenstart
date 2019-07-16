@@ -27,7 +27,7 @@ class HelloService {
             logger.warn("Non-numeric language id used: " + lang);
             langId = FALLBACK_LANG.getId();
         }
-        var welcomeMsg = repository.findById(langId).orElse(FALLBACK_LANG).getWelcameMsg();
+        var welcomeMsg = repository.findById(langId).orElse(FALLBACK_LANG).getWelcomeMsg();
         var nameOfWelcome = Optional.ofNullable(name).orElse(FALLBACK_NAME);
         return welcomeMsg + " " + nameOfWelcome + "!";
     }

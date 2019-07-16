@@ -75,7 +75,7 @@ public class HelloServiceTest {
         var result = SUT.prepareGreeting(null, "-1");
 
         //then
-        assertEquals(HelloService.FALLBACK_LANG.getWelcameMsg() + " " + HelloService.FALLBACK_NAME + "!", result);
+        assertEquals(HelloService.FALLBACK_LANG.getWelcomeMsg() + " " + HelloService.FALLBACK_NAME + "!", result);
     }
 
     private LangRepository fallbackLangIdRepository() {

@@ -14,7 +14,7 @@ class Lang {
     @GeneratedValue(generator = "inc")
     @GenericGenerator(name = "inc", strategy = "increment")
     private Integer id;
-    private String welcameMsg;
+    private String welcomeMsg;
     private String code;
 
     /**
@@ -24,9 +24,9 @@ class Lang {
     Lang() {
     }
 
-    public Lang(Integer id, String welcameMsg, String code) {
+    public Lang(Integer id, String welcomeMsg, String code) {
         this.id = id;
-        this.welcameMsg = welcameMsg;
+        this.welcomeMsg = welcomeMsg;
         this.code = code;
     }
 
@@ -34,12 +34,12 @@ class Lang {
         return id;
     }
 
-    public String getWelcameMsg() {
-        return welcameMsg;
+    public String getWelcomeMsg() {
+        return welcomeMsg;
     }
 
-    public void setWelcameMsg(String welcameMsg) {
-        this.welcameMsg = welcameMsg;
+    public void setWelcomeMsg(String welcomeMsg) {
+        this.welcomeMsg = welcomeMsg;
     }
 
     public String getCode() {
